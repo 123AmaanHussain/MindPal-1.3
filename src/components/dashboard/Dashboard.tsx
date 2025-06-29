@@ -282,14 +282,31 @@ export function Dashboard() {
 
   return (
     <div className="space-y-8 relative">
-      {/* White Circle Badge */}
-      <div className="absolute top-0 right-0 z-10">
-        <img 
+      {/* Clickable Bolt Badge */}
+      <motion.a
+        href="https://bolt.new"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-0 right-0 z-10 block"
+        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileTap={{ scale: 0.95 }}
+        title="Built with Bolt.new - Click to visit"
+      >
+        <motion.img 
           src="/white_circle_360x360.svg" 
-          alt="Badge" 
-          className="w-24 h-24 -mt-12 -mr-6"
+          alt="Built with Bolt.new" 
+          className="w-24 h-24 -mt-12 -mr-6 cursor-pointer transition-all duration-300 hover:drop-shadow-lg"
+          animate={{ 
+            rotate: [0, 5, -5, 0],
+            scale: [1, 1.05, 1]
+          }}
+          transition={{ 
+            duration: 4, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
         />
-      </div>
+      </motion.a>
 
       {/* Parallax Background Elements */}
       <motion.div
